@@ -68,10 +68,12 @@ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([ ], [ ])], [
   AC_MSG_RESULT([no])
 ])
 
+USRSCTP_DEPS="-lws2_32 -liphlpapi"
 AC_CHECK_HEADERS([usrsctp.h],
   [AC_CHECK_LIB([usrsctp], [usrsctp_init],
     [with_sctp="yes"; USRSCTP_LIBS="-lusrsctp"],
-    [with_sctp="no"]
+    [with_sctp="no"],
+    [$USRSCTP_DEPS]
   )],[with_sctp="no"]
 )
 AC_SUBST(USRSCTP_LIBS)
