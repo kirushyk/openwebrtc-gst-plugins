@@ -25,7 +25,7 @@ AM_PROG_AS
 
 dnl required version of libtool
 LT_PREREQ([2.2.6])
-LT_INIT
+LT_INIT([win32-dll])
 
 AC_CANONICAL_HOST
 
